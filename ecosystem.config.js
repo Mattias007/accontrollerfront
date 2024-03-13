@@ -1,7 +1,7 @@
 module.exports = {
     apps: [
       {
-        name: 'EmonCMSFrontEnd',
+        name: 'ACFront',
         script: 'node_modules/next/dist/bin/next', // Path to Next.js binary
         args: 'start', // Command-line arguments to pass to Next.js
         instances: 'max', // Run as many instances as possible
