@@ -2,7 +2,7 @@
 import mqtt from "mqtt";
 import { useState, useEffect, useRef } from 'react';
 
-const MQTT_HOST = 'ws://192.168.1.25:9001';
+const MQTT_HOST = 'mqtt://192.168.1.25:9001';
 
 export default function MqttList() {
     const [cards, setCards] = useState([]);
