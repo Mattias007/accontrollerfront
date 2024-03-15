@@ -22,7 +22,6 @@ export default function MqttList() {
 
             client.on('message', (topic, message, packet) => {
                 message.id = parseFloat(topic.slice(3)) // slices AC/ and makes the id in to number
-                console.log(message)
                 const existingCardIndex = ref.current.findIndex(card => card.id == message.id);
                 if (existingCardIndex != -1) {
                     // Update existing card
