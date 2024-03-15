@@ -1,5 +1,5 @@
 import mqtt from "mqtt";
-const MQTT_HOST = 'mqtt://192.168.1.25:9001';
+const MQTT_HOST = 'mqtt://localhost:9001';
 
 
 export default function Card(props) {
