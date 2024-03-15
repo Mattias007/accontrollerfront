@@ -5,7 +5,7 @@ import { useState, useEffect, useRef } from 'react';
 const MQTT_HOST = 'ws://192.168.1.25:9001';
 
 export default function MqttList() {
-    const [cards, setCards] = useState([{"temp":25,"hum":50}]);
+    const [cards, setCards] = useState([]);
     let ref = useRef(null);
 
 
@@ -23,7 +23,7 @@ export default function MqttList() {
             client.on('message', (topic, message, packet) => {
                 message = JSON.parse(message)
                 message.id = parseFloat(topic.slice(3)) // slices AC/ and makes the id in to number
-
+                console.log(message)
                 const existingCardIndex = ref.current.findIndex(card => card.id == message.id);
                 if (existingCardIndex != -1) {
                     // Update existing card
@@ -83,7 +83,7 @@ export default function MqttList() {
 
 
             {sortedCards.map((card) => (
-                    <div key={card.id} className="card p-2 bg-cyan-200 rounded-xl">
+                <div key={card.id} className="card p-2 bg-cyan-200 rounded-xl">
                         <h2>ID : {card.id}</h2>
                         <p>Temp : {card.temp}</p>
                         <p>Hum : {card.hum}</p>
