@@ -64,8 +64,8 @@ export default function MqttList() {
             // client.publish(`AC/${id}`, `{ command : ${command}}`,{ qos: 0, retain: false });
             // client.publish("AC/1", "hello",{ qos: 0, retain: false });
             client.on('connect', () => {
-                const message = `{ "command" : ${command}, "id" : ${data.id}, "temp": ${data.temp},"hum": ${data.temp}  }`
-                client.publish(`AC/${data.id}`,message,{ qos: 0, retain: true }, (error) => {
+                data.command = command
+                client.publish(`AC/${data.id}`,JSON.stringify(data),{ qos: 0, retain: true }, (error) => {
                   if (error) {
                     console.error(error)
                   }else{
