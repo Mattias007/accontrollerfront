@@ -21,6 +21,9 @@ export default function MqttList() {
             });
 
             client.on('message', (topic, message, packet) => {
+                message = String.fromCharCode.apply(null, message);
+                message = JSON.parse(message);
+
                 message.id = parseFloat(topic.slice(3)) // slices AC/ and makes the id in to number
                 const existingCardIndex = ref.current.findIndex(card => card.id == message.id);
                 if (existingCardIndex != -1) {
@@ -60,10 +63,9 @@ export default function MqttList() {
             // Publish a message to the topic associated with the card
             // client.publish(`AC/${id}`, `{ command : ${command}}`,{ qos: 0, retain: false });
             // client.publish("AC/1", "hello",{ qos: 0, retain: false });
-
             client.on('connect', () => {
-                
-                client.publish(`AC/${data.id}`,`{ "command" : ${command}, "id" : ${data.id}, "temp": ${data.temp},"hum": ${data.temp}  }`,{ qos: 0, retain: true }, (error) => {
+                const message = `{ "command" : ${command}, "id" : ${data.id}, "temp": ${data.temp},"hum": ${data.temp}  }`
+                client.publish(`AC/${data.id}`,message,{ qos: 0, retain: true }, (error) => {
                   if (error) {
                     console.error(error)
                   }else{
