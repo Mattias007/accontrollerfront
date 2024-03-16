@@ -3,6 +3,7 @@ import mqtt from "mqtt";
 import { useState, useEffect, useRef } from 'react';
 import Climetbutton from "@/components/climetbutton";
 
+
 const MQTT_HOST = 'mqtt://192.168.1.25:9001';
 
 export default function MqttList() {
@@ -51,20 +52,19 @@ export default function MqttList() {
     ref.current = cards
     const sortedCards = cards.slice().sort((a, b) => a.id - b.id);
 
-
-
     const Modes = [
         ["Off", 0],
-        ["On", 1],
+        ["Auto", 1],
         ["Heat", 2],
         ["Cool", 3],
         ["Dry", 4],
         ["Fan", 5]
       ]
+
     return (
         <div>
-            <h1>Wild Card Topic Cards</h1>
-            <div className="card-container grid p-2 gap-10 grid-cols-3">
+            <h1 className="text-center font-mono text-xl">AC Controllers</h1>
+            <div className="card-container grid p-2 gap-10 grid-cols-1 md:grid-cols-3">
 
                 {sortedCards.map((card) => (
                     <div key={card.id} className="card p-4  border border-gray-200 rounded-xl">
@@ -77,13 +77,6 @@ export default function MqttList() {
                             {Modes.map((mode) => (  
                                 <Climetbutton  key={mode[0]} props={[mode,card]}  />
                             ))}
-
-                            {/* <button className="bg-sky-100  p-2 rounded-xl" onClick={() => handlePublish(card ,0)}>Off</button>
-                        <button className="bg-sky-100  p-2 rounded-xl" onClick={() => handlePublish(card ,1)}>Auto</button>
-                        <button className="bg-sky-100  p-2 rounded-xl" onClick={() => handlePublish(card ,2)}>Heat</button>
-                        <button className="bg-sky-100  p-2 rounded-xl" onClick={() => handlePublish(card ,3)}>Dry</button>
-                        <button className="bg-sky-100  p-2 rounded-xl" onClick={() => handlePublish(card ,4)}>Cool</button>
-                        <button className="bg-sky-100  p-2 rounded-xl" onClick={() => handlePublish(card ,5)}>Fan</button> */}
                         </div>
 
 

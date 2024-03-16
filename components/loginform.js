@@ -7,7 +7,7 @@ export default function Page() {
 
 
   return (
-    <form className='flex flex-col p-4 w-2/5 border border-gray-200 rounded gap-4' action={dispatch}>
+    <form className='flex flex-col p-4 w-2/5 border border-gray-200 rounded gap-4 min-w-64 max-w-80' action={dispatch}>
       <input className='p-2 border border-gray-200 rounded' type="username" name="username" placeholder="Username" required />
       <input className='p-2 border border-gray-200 rounded' type="password" name="password" placeholder="Password" required />
       <div>{errorMessage && <p>{errorMessage}</p>}</div>
