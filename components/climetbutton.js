@@ -1,5 +1,5 @@
 import mqtt from "mqtt";
-const MQTT_HOST = 'mqtt://192.168.1.25:9001';
+const MQTT_HOST = 'mqtt://85.89.43.95:9001';
 
 
 export default function Climetbutton(props) {

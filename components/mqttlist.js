@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from 'react';
 import Climetbutton from "@/components/climetbutton";
 
 
-const MQTT_HOST = 'mqtt://192.168.1.25:9001';
+const MQTT_HOST = 'mqtt://85.89.43.95:9001';
 
 export default function MqttList() {
     const [cards, setCards] = useState([]);
