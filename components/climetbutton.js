@@ -21,7 +21,7 @@ export default function Climetbutton(props) {
 
         client.on('connect', () => {
             data.command = command
-            client.publish(`AC/${data.id}/command`, JSON.stringify(data.command), { qos: 0, retain: true }, (error) => {
+            client.publish(`AC/${data.id}/Command`, JSON.stringify(data.command), { qos: 0, retain: true }, (error) => {
                 if (error) {
                     console.error(error)
                 } else {

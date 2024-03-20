@@ -69,7 +69,6 @@ export default function MqttList() {
 
       function renderClimetButtons(card){
         if(card.overide == 0){
-            console.log("test")
             return(
                 <div className="grid-cols-3 grid gap-2 p-2">
                     <h1 className="text-center col-span-full">Manual Mode</h1>
