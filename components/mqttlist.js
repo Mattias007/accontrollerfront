@@ -3,14 +3,15 @@ import mqtt from "mqtt";
 import { useState, useEffect, useRef } from 'react';
 import Climetbutton from "@/components/climetbutton";
 import Overidebutton from "./overidebuttons";
+import Targettemp from "./targettemp";
 
 
 const MQTT_HOST = 'mqtt://85.89.43.95:9001';
 
 export default function MqttList() {
     const [cards, setCards] = useState([]);
+    const [mqttclient, setmqttclient] = useState();
     let ref = useRef(null);
-
 
 
     useEffect(() => {
@@ -41,6 +42,7 @@ export default function MqttList() {
 
                 setCards(prevCards => [...prevCards, newCard]);
             }
+            setmqttclient(client);
         }); return () => {
             // Disconnect client when component unmounts
             client.end();
@@ -70,10 +72,10 @@ export default function MqttList() {
       function renderClimetButtons(card){
         if(card.overide == 0){
             return(
-                <div className="grid-cols-3 grid gap-2 p-2">
+                <div className="grid-cols-3 grid gap-2 p-2">    
                     <h1 className="text-center col-span-full">Manual Mode</h1>
                     {Modes.map((mode) => (  
-                        <Climetbutton  key={mode[0]} props={[mode,card]}  />
+                        <Climetbutton  key={mode[0]} props={[mode,card,mqttclient]}  />
                     ))}
                 </div>
             )
@@ -90,8 +92,8 @@ export default function MqttList() {
                 {sortedCards.map((card) => (
                     <div key={card.id} className="card p-4 bg-white shadow-md rounded-xl">
                         <h2 className="text-center">{card.name}</h2>
+                        <Targettemp props={[card,mqttclient]}/>
                         <div className="grid grid-cols-2">
-                        <input type="number" defaultValue={card.targettemp}></input>
                         <p>{card.temp}°C</p>
                         <p>{card.hum}%</p>
                         </div>
@@ -99,7 +101,7 @@ export default function MqttList() {
 
                             {
                             Logic.map((logi) => (  
-                                <Overidebutton  key={logi[0]} props={[logi,card]}  />
+                                <Overidebutton  key={logi[0]} props={[logi,card,mqttclient]}  />
                             ))
                             }
                         </div>
