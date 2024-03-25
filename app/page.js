@@ -1,11 +1,12 @@
+import Logout from "@/components/logout";
 import MqttList from "@/components/mqttlist";
 export default function Home() {
 
 
 return (  
-  <main className="">
+  <main className="w-screen min-h-screen">
       <MqttList />
-      <a href="/api/auth/logout">Logout</a>
-    </main>
+      <Logout/>
+  </main>
   );
 }

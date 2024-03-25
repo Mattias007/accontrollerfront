@@ -86,7 +86,7 @@ export default function MqttList() {
       }
 
     return (
-        <div>
+        <div className="">
             <h1 className="text-center font-mono text-xl">AC Controllers</h1>
             <div className="card-container grid p-2 gap-6 grid-cols-1 md:grid-cols-3">
 
