@@ -26,10 +26,10 @@ export default function Targettemp(props) {
 
 
     return (
-        <div className="flex p-2 gap-2 justify-center">
-            <button onClick={tempup}>Up |</button>
-            <p>{temp}°C</p>
-            <button onClick={tepmdown}>| Down</button>
+        <div className="flex p-2 gap-2 justify-center items-center">
+            <button className="p-2 flex-1 rounded-xl shadow hover:bg-sky-400 bg-sky-100" onClick={tempup}>Up</button>
+            <p className="flex-1 text-center text-lg">{temp}°C</p>
+            <button className="p-2 flex-1 rounded-xl shadow hover:bg-sky-400 bg-sky-100" onClick={tepmdown}>Down</button>
 
         </div>
     )

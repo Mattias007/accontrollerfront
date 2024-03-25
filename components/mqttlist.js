@@ -92,19 +92,21 @@ export default function MqttList() {
                 {sortedCards.map((card) => (
                     <div key={card.id} className="card p-4 bg-white shadow-md rounded-xl">
                         <h2 className="text-center">{card.name}</h2>
-                        <Targettemp props={[card,mqttclient]}/>
-                        <div className="grid grid-cols-2">
+                        <div className="grid grid-cols-2 text-center text-lg">
                         <p>{card.temp.toFixed(2)}°C</p>
                         <p>{card.hum.toFixed(2)}%</p>
                         </div>
-                        <div className="grid-cols-3 grid gap-2 p-2">
+                        <h1 className="text-center">Target Temperature</h1>
+                        <Targettemp props={[card,mqttclient]}/>
+
+                        {/* <div className="grid-cols-3 grid gap-2 p-2">
 
                             {
                             Logic.map((logi) => (  
                                 <Overidebutton  key={logi[0]} props={[logi,card,mqttclient]}  />
                             ))
                             }
-                        </div>
+                        </div> */}
 
                             {renderClimetButtons(card)}
                         <div className="grid-cols-3 grid gap-2 p-2">
