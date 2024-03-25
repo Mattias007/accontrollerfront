@@ -94,8 +94,8 @@ export default function MqttList() {
                         <h2 className="text-center">{card.name}</h2>
                         <Targettemp props={[card,mqttclient]}/>
                         <div className="grid grid-cols-2">
-                        <p>{card.temp}°C</p>
-                        <p>{card.hum}%</p>
+                        <p>{card.temp.toFixed(2)}°C</p>
+                        <p>{card.hum.toFixed(2)}%</p>
                         </div>
                         <div className="grid-cols-3 grid gap-2 p-2">
 
