@@ -1,13 +1,12 @@
-import LoginForm from "@/components/loginform";
- 
-
-export default function Home(logedin) {
+import Logout from "@/components/logout";
+import MqttList from "@/components/mqttlist";
+export default function Home() {
 
 
 return (  
-  <main className="flex justify-center min-h-screen items-center">
-    <h1>Welcome to AC Controll Web Page</h1>
-      <LoginForm />
-    </main>
+  <main className="w-screen min-h-screen">
+      <MqttList />
+      <Logout/>
+  </main>
   );
 }

@@ -1,20 +1,21 @@
 "use client"
 import mqtt from "mqtt";
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef  } from 'react';
 import Climetbutton from "@/components/climetbutton";
 import Overidebutton from "./overidebuttons";
 import Targettemp from "./targettemp";
 
-
 const MQTT_HOST = 'mqtt://85.89.43.95:9001';
 
 export default function MqttList() {
+
     const [cards, setCards] = useState([]);
     const [mqttclient, setmqttclient] = useState();
     let ref = useRef(null);
 
-
     useEffect(() => {
+
+
         const client = mqtt.connect(MQTT_HOST, {
             username: 'mattias',
             password: '8W6aG2g2apPN'
@@ -85,7 +86,7 @@ export default function MqttList() {
       }
 
     return (
-        <div>
+        <div className="">
             <h1 className="text-center font-mono text-xl">AC Controllers</h1>
             <div className="card-container grid p-2 gap-6 grid-cols-1 md:grid-cols-3">
 

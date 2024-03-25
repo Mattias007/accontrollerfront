@@ -1,11 +1,12 @@
- import { logout } from "@/app/lib/actions"
+
 
 export default function Logout() {
 
   return (
-    <form action={logout}>
-        <button type="submit" className="p-2 shadow bg-white rounded m-2" onClick={logout}>Logout</button>
-    </form>
+    <div className="p-2 ml-2 shadow rounded w-fit bg-white">
+    <a className="p-2" href="/api/auth/logout">Logout</a>
+    </div>
+
   )
 }
  
