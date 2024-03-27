@@ -3,8 +3,8 @@ export default function Targettemp(props) {
     props = props.props
     const data = props[0]
     const client = props[1]
-    const temp = ((data.targettemp - 32) * 5/9).toFixed(2)
-
+   // const temp = ((data.targettemp - 32) * 5/9).toFixed(2)
+    const temp = data.targettemp
 
     const tempup = () => {
         const targettemp = data.targettemp + 1
