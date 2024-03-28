@@ -7,7 +7,6 @@ import Targettemp from "./targettemp";
 import ProfileClient from "./clientProfile";
 
 
-const MQTT_HOST = 'mqtt://85.89.43.95:9001';
 
 export default function MqttList() {
 
@@ -20,10 +19,9 @@ export default function MqttList() {
         
     useEffect(() => {
 
-
-        const client = mqtt.connect(MQTT_HOST, {
-            username: 'mattias',
-            password: '8W6aG2g2apPN'
+        const client = mqtt.connect(process.env.NEXT_PUBLIC_MQTT_HOST, {
+            username: process.env.NEXT_PUBLIC_MQTT_USER,
+            password: process.env.NEXT_PUBLIC_MQTT_PASS
         });
 
         client.on("connect", () => {
