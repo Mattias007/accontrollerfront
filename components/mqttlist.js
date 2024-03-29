@@ -9,7 +9,7 @@ import Targettemp from "./targettemp";
 
 export default function MqttList() {
 
-    const [cards, setCards] = useState([]);
+    const [cards, setCards] = useState([{id:0,name:"Loading",temp:0,hum:0,overide:0,targettemp:0}]);
     const [mqttclient, setmqttclient] = useState();
 
 

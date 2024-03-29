@@ -50,7 +50,6 @@ export default function Graph() {
             settiem(time)
             settemp(temp)
             sethum(hum);
-            setIsLoading(false);
         }
 
 
@@ -70,6 +69,7 @@ export default function Graph() {
 
     const data = {
         labels,
+        fill: true,
         datasets: [
             {
                 label: 'Temp C',
@@ -84,14 +84,22 @@ export default function Graph() {
         ],
     };
 
-    console.log(labels)
-    if (isLoading) {
-        return
+    const options={
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          title: {
+            display: true,
+            text: "Klaasikoda",
+          },
+        },
     }
 
     return (
-        <div className='p-4 w-full'>
-            <Line data={data} />
+        <div className='flex justify-center w-screen'> 
+            <div className='w-full h-80 relative bg-white rounded-lg shadow-md p-10 m-2'>
+                <Line data={data} options={options}/>
+            </div>
         </div>
         )
 };

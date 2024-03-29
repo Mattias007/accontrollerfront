@@ -7,7 +7,7 @@ export default function Home() {
 
 return (  
   <main className="w-screen min-h-screen">
-      <ProfileClient />
+      {/* <ProfileClient /> */}
       <MqttList />
       <Graph />
       <Logout />
