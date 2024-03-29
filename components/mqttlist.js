@@ -4,7 +4,6 @@ import { useState, useEffect, useRef  } from 'react';
 import Climetbutton from "@/components/climetbutton";
 import Overidebutton from "./overidebuttons";
 import Targettemp from "./targettemp";
-import ProfileClient from "./clientProfile";
 
 
 
@@ -95,7 +94,6 @@ export default function MqttList() {
         <div className="">
             <h1 className="text-center font-mono text-xl">AC Controllers</h1>
 
-            <ProfileClient/>
 
             <div className="card-container grid p-2 gap-6 grid-cols-1 md:grid-cols-3">
 
