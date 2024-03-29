@@ -9,7 +9,7 @@ return (
   <main className="w-screen min-h-screen">
       <ProfileClient />
       <MqttList />
-      {/* <Graph /> */}
+      <Graph />
       <Logout />
   </main>
   );
