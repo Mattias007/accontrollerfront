@@ -23,12 +23,12 @@ export async function logout() {
 }
 
 export async function graphData(){
-  const res = await fetch(`http://85.89.32.58/feed/data.json?id=52&start=-1 hour&end=now&interval=10&average=0&timeformat=unix&skipmissing=0&limitinterval=0&delta=0&apikey=7bf4e9f0d76c7fd480b1eae9699aaac9 `)
+  const res = await fetch(`http://85.89.32.58/feed/data.json?id=52&start=-24 hour&end=now&interval=3600&average=0&timeformat=unix&skipmissing=0&limitinterval=0&delta=0&apikey=7bf4e9f0d76c7fd480b1eae9699aaac9 `)
   return await res.json()
 }
 
 export async function graphData2(){
-  const res = await fetch(`http://85.89.32.58/feed/data.json?id=53&start=-1 hour&end=now&interval=10&average=0&timeformat=unix&skipmissing=0&limitinterval=0&delta=0&apikey=7bf4e9f0d76c7fd480b1eae9699aaac9 `)
+  const res = await fetch(`http://85.89.32.58/feed/data.json?id=53&start=-24 hour&end=now&interval=3600&average=0&timeformat=unix&skipmissing=0&limitinterval=0&delta=0&apikey=7bf4e9f0d76c7fd480b1eae9699aaac9 `)
   return await res.json()
 }
 
