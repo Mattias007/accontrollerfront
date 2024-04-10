@@ -12,44 +12,31 @@ import {
     Legend,
   } from 'chart.js';
 import { useEffect , useState} from 'react';
-import { graphData, graphData2 } from '@/app/lib/actions';
+import { graphData } from '@/app/lib/actions';
 
 
-export default function Graph() {
-    const [labels, settiem] = useState([])
+export default function Graphtemp() {
+    const [labels, settime] = useState([])
     const [temparray, settemp] = useState([]);
-    const [humarray, sethum] = useState([]);
-    const [isLoading, setIsLoading] = useState(true);
     
 
     useEffect(() => {
         let time = []
         let temp = []
-        let hum = []
         const fetchData = async () => {
             const res = await graphData()
             res.map(e => {
                 const date = new Date(e[0] * 1000);
-                time.push(`${date.getHours()}:${date.getMinutes()}`)
+                time.push(`${ ("0" + date.getHours()).slice(-2)}:${("0" + date.getMinutes()).slice(-2)}`)
+
                 if (e[1] == null) {
                     temp.push(null)
                 }else{
                     temp.push(e[1].toFixed(4))
                 }
             })
-
-            const res2 = await graphData2()
-            res2.map(e => {
-                if (e[1] == null) {
-                    hum.push(null)
-                }else{
-                    hum.push(e[1].toFixed(4))
-                }
-            })
-
-            settiem(time)
+            settime(time)
             settemp(temp)
-            sethum(hum);
         }
 
 
@@ -76,11 +63,6 @@ export default function Graph() {
                 data: temparray,
                 backgroundColor: 'rgba(255, 1, 126, 0.5)',
             },
-            {
-                label: 'Hum %',
-                data: humarray,
-                backgroundColor: 'rgba(25, 125, 25, 0.5)',
-            },
         ],
     };
 
@@ -96,8 +78,8 @@ export default function Graph() {
     }
 
     return (
-        <div className='flex justify-center w-screen'> 
-            <div className='w-full h-80 relative bg-white rounded-lg shadow-md p-10 m-2'>
+        <div className='flex justify-center m-2'> 
+            <div className='w-full min-h-80 relative bg-white rounded-lg shadow-md p-6'>
                 <Line data={data} options={options}/>
             </div>
         </div>

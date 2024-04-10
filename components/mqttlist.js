@@ -107,14 +107,14 @@ export default function MqttList() {
                         <h1 className="text-center">Target Temperature</h1>
                         <Targettemp props={[card,mqttclient]}/>
 
-                        {/* <div className="grid-cols-3 grid gap-2 p-2">
+                        <div className="grid-cols-3 grid gap-2 p-2">
 
                             {
                             Logic.map((logi) => (  
                                 <Overidebutton  key={logi[0]} props={[logi,card,mqttclient]}  />
                             ))
                             }
-                        </div> */}
+                        </div>
 
                             {renderClimetButtons(card)}
                         <div className="grid-cols-3 grid gap-2 p-2">
