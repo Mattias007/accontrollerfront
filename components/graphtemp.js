@@ -69,6 +69,12 @@ export default function Graphtemp() {
     const options={
         responsive: true,
         maintainAspectRatio: false,
+        scales: {
+                y: {
+                    suggestedMin: 0, // Minimum value on the y-axis
+                    suggestedMax: 30, 
+                },
+        },
         plugins: {
           title: {
             display: true,

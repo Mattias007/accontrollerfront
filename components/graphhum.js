@@ -71,6 +71,12 @@ export default function Graphhum() {
     const options={
         responsive: true,
         maintainAspectRatio: false,
+        scales: {
+            y: {
+                suggestedMin: 0, 
+                suggestedMax: 100, 
+            },
+        },
         plugins: {
           title: {
             display: true,
