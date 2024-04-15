@@ -4,7 +4,7 @@ import { useState, useEffect, useRef  } from 'react';
 import Climetbutton from "@/components/climetbutton";
 import Overidebutton from "./overidebuttons";
 import Targettemp from "./targettemp";
-
+import Image from 'next/image'
 
 
 export default function MqttList() {
@@ -86,7 +86,18 @@ export default function MqttList() {
                 </div>
             )
         }else{
-            return <h1 className="col-span-full text-center">Controlled By Skynet©</h1>
+            return (
+            <div className="flex justify-center flex-col items-center">
+                <h1 className="col-span-full text-center">Controlled By Skynet©</h1>
+                <Image src="/who-me.gif"       
+                width={110}
+                height={110}
+                priority={true}
+                alt="Skynet android looking at camera"
+                className="shadow"
+                />
+            </div>
+        )
         }
       }
 
@@ -94,8 +105,7 @@ export default function MqttList() {
         <div className="">
             <h1 className="text-center font-mono text-xl">AC Controllers</h1>
 
-
-            <div className="card-container grid p-2 gap-6 grid-cols-1 md:grid-cols-3">
+            <div className="card-container grid p-2 gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
 
                 {sortedCards.map((card) => (
                     <div key={card.id} className="card p-4 bg-white shadow-md rounded-xl">

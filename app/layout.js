@@ -15,7 +15,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <UserProvider>
-      <body className={inter.className + " bg-zinc-100"}>{children}</body>
+      <body className="w-full overflow-x-hidden min-h-screen bg-zinc-100">{children}</body>
       </UserProvider>
     </html>
   );

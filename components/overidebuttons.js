@@ -8,7 +8,7 @@ export default function Overidebutton(props) {
 
     const handlePublish = (data, command) => {
             data.overide = command
-            client.publish(`AC/${data.id}/data`, JSON.stringify(data), { qos: 0, retain: true }, (error) => {
+            client.publish(`AC/${data.id}/Override`, JSON.stringify(data.overide), { qos: 0, retain: true }, (error) => {
                 if (error) {
                     console.error(error)
                 }
