@@ -33,4 +33,17 @@ export async function graphData2(){
 }
 
 
+export async function graphData3(){
+  const res = await fetch(`http://85.89.32.58/feed/data.json?id=60&start=-24 hour&end=now&interval=3600&average=0&timeformat=unix&skipmissing=0&limitinterval=0&delta=0&apikey=7bf4e9f0d76c7fd480b1eae9699aaac9 `)
+  return await res.json()
+}
+
+export async function graphData4(){
+  const res = await fetch(`http://85.89.32.58/feed/data.json?id=61&start=-24 hour&end=now&interval=3600&average=0&timeformat=unix&skipmissing=0&limitinterval=0&delta=0&apikey=7bf4e9f0d76c7fd480b1eae9699aaac9 `)
+  return await res.json()
+}
+
+
+
+
 
